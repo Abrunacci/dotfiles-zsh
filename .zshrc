@@ -89,13 +89,14 @@ source $ZSH/oh-my-zsh.sh
 #
 
 VIRTUALENVFILE="/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
-SYNTAXHLFILE="~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax.highlighting.zsh"
+SYNTAXHLFILE=${HOME}/.oh-my-zsh/plugins/zsh-syntax-highlighting/
 
 if [ -e $VIRTUALENVFILE ]; then
     source  /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 else
     echo "You have to install virtualenvwrapper or chage the source file for the right one (exec 'whereis virtualenvwrapper' to know the location)"
 fi
+
 
 if [ ! -e $SYNTAXHLFILE ]; then
     ln -s ~/.dotfiles-zshrc/zsh-syntax-highlighting/ ~/.oh-my-zsh/plugins/
