@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent)
+plugins=(git ssh-agent zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,4 +84,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+#
+# Adding some things
+#
+
+VIRTUALENVFILE="/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
+SYNTAXHLFILE="~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax.highlighting.zsh"
+
+if [ -e $VIRTUALENVFILE ]; then
+    source  /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+else
+    echo "You have to install virtualenvwrapper or chage the source file for the right one (exec 'whereis virtualenvwrapper' to know the location)"
+fi
+
+if [ ! -e $SYNTAXHLFILE ]; then
+    ln -s ~/.dotfiles-zshrc/zsh-syntax-highlighting/ ~/.oh-my-zsh/plugins/
+fi
+
+
+
