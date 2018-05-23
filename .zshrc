@@ -2,12 +2,25 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/ale/.oh-my-zsh
+  export ZSH=/home/abrunacci/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+POWERLEVEL9K_MODE='awesome-fontconfig'
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# POWERLEVEL CONFIGURATION
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time virtualenv)
+
+source ~/.fonts/*.sh
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,23 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-#
-# Adding some things
-#
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-VIRTUALENVFILE="/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
-SYNTAXHLFILE=${HOME}/.oh-my-zsh/plugins/zsh-syntax-highlighting/
+alias nubi='bin/nb'
+alias doco='docker-compose'
+# alias vim='nvim'
+source /usr/local/bin/virtualenvwrapper.sh
 
-if [ -e $VIRTUALENVFILE ]; then
-    source  /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-else
-    echo "You have to install virtualenvwrapper or chage the source file for the right one (exec 'whereis virtualenvwrapper' to know the location)"
-fi
-
-
-if [ ! -e $SYNTAXHLFILE ]; then
-    ln -s ~/.dotfiles-zshrc/zsh-syntax-highlighting/ ~/.oh-my-zsh/plugins/
-fi
-
-
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
