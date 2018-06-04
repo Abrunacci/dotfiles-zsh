@@ -102,6 +102,12 @@ source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias nubi='bin/nb'
 alias doco='docker-compose'
 # alias vim='nvim'
+
+alias banking_up='cd ~/src/nb-banking/nb-dev-tools && nubi up'
+alias banking_down='cd ~/src/nb-banking/nb-dev-tools && nubi down'
+
+alias paypal_up='cd ~/src/nb-paypal/np-dev-tools && bin/nubi up'
+alias paypal_down='cd ~/src/nb-paypal/np-dev-tools && bin/nubi down'
 source /usr/local/bin/virtualenvwrapper.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
